@@ -1,104 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-</head>
-<body>
-  
-<script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>askR|Create a new Asking</title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="css/bootstrap-timepicker.min.css" rel="stylesheet">
+
+
+  <!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+  <style>
+    .datepicker {
+      color: #000000;
     }
-  }
+  </style>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+</head>
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
+<body>
 
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '391405854390439',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.2' // use version 2.2
-  });
-  
 
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
+  <div class="container-full">
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+    <div class="row">
+      <div class="col-lg-12 text-center v-center">
 
-  };
+        <h2>Plan Your Asking</h2>
 
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+        <br>
+        <br>
+        <br>
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
+        <div class="container-fluid">
+          <form class="form col-md-12 center-block">
 
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
+            <!-- Title of Asking -->
+            <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+              <input type="text" class="form-control input-lg" placeholder="Event Title" id="title">
+            </div>
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+            <!--Start datetimepicker -->
+            <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+              <div class="container">
+                
+                <!-- Start of Datepicker -->
+                <div class='col-xs-12 col-md-3'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" id="date" placeholder="Select Date"/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <script type="text/javascript">
+                  $(function () {
+                $('#datetimepicker1').datetimepicker({
+                        allowInputToggle: true,
+                        format: 'MMMM DD, YYYY'
+                      });
+                  });
+                </script>
+                <!-- End of Datepicker -->
 
-<div id="status">
-</div>
-<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                <!-- Start Timepicker -->
+                <div class='col-xs-12 col-md-3'>
+                  <div class="form-group">
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input id="timepicker1" type="text" class="form-control input-small">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                    </div>
+                  </div>
+                </div>
+                <script type="text/javascript">
+                  $('#timepicker1').timepicker();
+                </script>
+                <!-- End of Timepicker -->
+
+              </div>
+            </div>
+            <!-- End datetimepicker -->
+
+            <!-- Askee -->
+            <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+              <input type="text" class="form-control input-lg" placeholder="Who are you asking?" id="askee">
+            </div>
+
+            <!-- Location -->
+            <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+              <input type="text" class="form-control input-lg" placeholder="Where are you asking?" id="location">
+            </div>
+
+            <!-- Description -->
+            <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+              <textarea class="form-control" rows="3" placeholder="Write a brief description" id="description"></textarea>
+            </div>
+
+            <!-- Create Button -->
+            <div class="form-group col-xs-3 col-md-offset-8">
+              <button type="button" class="btn btn-primary btn-lg" id="create">Create</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <!-- /row -->
+
+
+
+  <script>
+    var askingRef = new Firebase("https://askr.firebaseio.com/askings");
+      $('#create').click(function () {
+            var datetime=new Date($("#date").val() + ' ' + $("#timepicker1").val()).getTime();
+            var title = $("#title").val();
+            var askee = $("#askee").val();
+            var location = $("#location").val();
+            var description = $("#description").val();
+            askingRef.child(String(title)).set({
+              askee: askee,
+              date: datetime,
+              location: location,
+              description: description
+              });
+          });
+  </script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Moment.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+  <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+
 </body>
+
 </html>
