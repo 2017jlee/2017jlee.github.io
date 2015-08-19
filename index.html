@@ -44,6 +44,7 @@
         <br>
         <br>
 
+        <div id="done" />
         <div class="container-fluid">
           <form class="form col-md-12 center-block">
 
@@ -127,6 +128,7 @@
   <script>
     var askingRef = new Firebase("https://askr.firebaseio.com/askings");
       $('#create').click(function () {
+          
             var datetime=new Date($("#date").val() + ' ' + $("#timepicker1").val()).getTime();
             var title = $("#title").val();
             var askee = $("#askee").val();
@@ -138,6 +140,8 @@
               location: location,
               description: description
               });
+            $("div").remove(".form-group");
+            document.getElementById("done").innerHTML = "Done!"
           });
   </script>
 
