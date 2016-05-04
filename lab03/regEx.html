@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>
+        RegEx
+    </title>
+    <script>
+        function verifyEmail(){
+            var inputEmail = event.target.value;
+            var emailRegex = /^[a-z]+@[a-z]+\.[a-z]+$/i
+            if(!emailRegex.test(inputEmail)){
+                alert("Bad email")
+            }
+        }
+        </script>
+</head>
+
+<body>
+    <form>
+        <div> userId:
+            <input name="userID" type="text" pattern="[a-z][A-Za-z\n]+">
+        </div>
+        <div> Email:
+            <input name="email"type="text" onblur="verifyEmail()">
+        </div>
+        <input type="submit">
+    </form>
+</body>

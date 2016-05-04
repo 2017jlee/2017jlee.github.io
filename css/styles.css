@@ -1,0 +1,29 @@
+body{
+        background-color:#2C3E50; 
+        color: white;
+}
+.header{
+    color: black;
+}
+.basic_info{
+    font-size: 0.7em;
+}
+.specs{
+    color:black
+}
+.k{
+    border-color: black;
+    background-color: blueviolet;
+    border-style: solid;
+}
+
+input[data-toggle] {
+  display: none; }
+
+input[data-toggle]:checked + label,
+input[data-toggle]:checked + label:active {
+  background-color: salmon;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05); }
+
+.button-group.toggle li:not(first-child) {
+  margin: 0 -0.9rem; }

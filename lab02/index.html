@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <a href="../index.html" class="clicker">return to index</a>
+    <h1 id="title">Dom Tree Navigation</h1>
+    <div onclick="clicked()">
+        <div class="k" id="div1">
+            Hola
+            <p class="k" style="padding-left:2em"> ayyy <span> lmao</span></p>
+            
+            <ul id="div2">
+                <li class="k">Hi </li>
+                <li class="k">How</li>
+                <li class="k">are</li>
+                <li class="k">you</li>
+                <li class="k">doing</li>
+            </ul>
+        </div>
+    </div>
+
+</html>
+<script>
+    function clicked(){
+	target = event.target;
+	if(target.childElementCount != 0 ){
+
+		fadeOut(target.firstElementChild);
+	}
+	else if (target.nextElementSibling != null){
+
+		fadeOut(target.nextElementSibling);
+	}
+	else{
+		current = target.parentElement;
+		while(current.nextElementSibling == null){
+			current = current.parentElement;
+		}
+
+		fadeOut(current.nextElementSibling);
+	}
+}
+op = 1.0
+function fadeOut(element){
+	element.style.opacity = op; 
+	if(op>0){
+		op -= .1;
+		setTimeout(function(){fadeOut(element)}, 20);
+	}
+	else
+		fadeIn(element);
+}
+function fadeIn(element){
+	element.style.opacity = op; 
+	if(op<1){
+		op += .1;
+		setTimeout(function(){fadeIn(element)}, 20);
+	}
+}
+
+</script>
