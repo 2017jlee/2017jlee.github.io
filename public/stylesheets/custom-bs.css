@@ -1,0 +1,82 @@
+html {
+	font-family: 'Roboto Slab', serif;
+}
+body {
+	font-family: 'Roboto Slab', serif;
+}
+header{
+  font-family: 'Roboto', sans-serif;
+}
+.navbar {
+	text-align: center;
+  background: rgba(0, 0, 0, 0)
+}
+.dropdown-menu {
+	text-align: center;
+}
+.navbar-collapse {
+	text-align: center;
+}
+@media (min-width: 768px) {
+	.navbar-collapse {
+		text-align: center;
+	}
+}
+navbar-nav .open .dropdown-menu .dropdown-header {
+	padding: 5px 15px 5px 15px;
+}
+@media (min-width: 768px) {
+	.navbar-nav {
+		display: inline-block;
+		float: none;
+	}
+}
+@media (min-width: 768px) {
+	ul.nav li.dropdown:hover > ul.dropdown-menu {
+		display: block;
+	}
+}
+header .jumbotron {
+	background: none;
+	padding-bottom: 0px;
+	padding-top: 0px;
+  vertical-align:bottom;
+  text-align: center;
+}
+.jumbotron .text-overlay {
+	background-color: rgba(236,240,241 , .8);
+	color: #fff;
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+}
+.jumbotron h2 {
+  padding-left: 5%;
+  padding-top: 5%;
+  text-align: left;
+  font-weight: bold;
+  font-style: italic;
+	color: #d35400;
+  text-shadow: 1px 1px #FFC400;
+}
+.jumbotron h1 {
+  font-weight: bold;
+	color: #d35400;
+  /*text-shadow: 2px 2px #FFC400;*/
+}
+
+.jumbotron .img-overlay {
+	position: relative;
+	width: inherit;
+}
+.jumbotron .img-responsive {
+	height: auto;
+	object-fit: cover;
+	width: 100%;
+}
+.jumbotron img.blur {
+	filter: blur(12x);
+	webkit-filter: blur(2px);
+}
