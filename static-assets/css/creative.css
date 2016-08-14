@@ -11,6 +11,10 @@ body {
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
+.resize {
+    width: 150px;
+    height: auto;
+}
 hr {
   border-color: #F05F40;
   border-width: 3px;
