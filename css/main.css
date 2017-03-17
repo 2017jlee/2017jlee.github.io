@@ -1,0 +1,26 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* needed for container min-height */
+}
+
+header {
+    background: url("../images/header.jpg") no-repeat fixed center / cover;
+    position: relative;
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+}
+
+header h1 {
+    font-weight: 600;
+    color: ghostwhite;
+}
+
+.namebox{
+    background: rgba(0, 0, 0, 0.5);
+}
