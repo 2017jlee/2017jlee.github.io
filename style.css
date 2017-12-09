@@ -1,0 +1,19 @@
+body {
+    margin-top: 20px;
+    display: grid;
+    /* 10x7 Grid */
+    grid-template-rows: 1fr 1.5fr;
+    grid-template-columns: 0.25fr 1fr;
+    grid-template-areas: "title title"
+                         "menu content";
+}
+.mast {
+    grid-area: title;
+}
+.nav {
+    grid-area: menu;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.content {
+    grid-area: content;
+}
